@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vue 101 - Part 4</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <h1>List of games</h1>
+    <div id="app">
+        <ul>
+            <!-- <li v-for="game in games">{{ game }}</li> -->
+            <!-- <li v-for="(game, index) in games">index: {{ index }} {{ game }}</li> -->
+        </ul>
+
+        <table class="table">
+            <thead><th>Name</th><th>Console</th><th>Rating</th></thead>
+            <tbody>
+               <tr v-for="game in games">
+                   <td>{{ game.name }} </td>
+                   <td>{{ game.console }}</td>
+                   <td>
+                       <span v-for="star in game.rating">❤️</span>
+                       <small v-if="game.rating > 5">Wow, this game must be <b>REALLY</b> good!</small>
+                    </td>
+               </tr> 
+            </tbody>
+        </table>        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                // games: [
+                //     'Super Mario 64',
+                //     'The Legend of Zelda Ocarina of Time',
+                //     'Secret of Mana',
+                //     'Super Metroid'
+                // ]
+                games: [
+                    { name: 'Super Mario 64', console: 'Nintendo 64', rating: 4 },
+                    { name: 'The Legend of Zelda Ocarina of Time', console: 'Nintendo 64', rating: 5 },
+                    { name: 'Secret of Mana', console: 'Super Nintendo', rating: 4 },
+                    { name: 'Fallout 76', console: 'Multiple', rating: 1 },
+                    { name: 'Super Metroid', console: 'Super Nintendo', rating: 6 }
+                ]
+            },
+            methods: {
+              
+            }
+        });
+    </script>
+</body>
+
+</html>

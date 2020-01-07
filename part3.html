@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vue 101 - Part 3</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css" >
+</head>
+
+<body>
+    <h1>Hello!</h1>
+    <div id="app">
+        <p>My local property: {{ myLocalProperty }}</p>
+        <button v-on:click="buttonWasClicked">Click me!</button>
+        <hr>
+        <p v-if="randomNumber >= 50" class="text-success">Great! The random number is &gt;= 50</p>
+        <p v-else class="text-danger">Sorry, the random number is &lt; 50</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                myLocalProperty: 'Im a local property value',
+                randomNumber: 0
+            },
+            methods: {
+                buttonWasClicked() {
+                    this.randomNumber = Math.floor(Math.random() * 100);
+                },
+            }
+        });
+    </script>
+</body>
+
+</html>
