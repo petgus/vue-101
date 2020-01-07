@@ -14,6 +14,10 @@
             margin:10px;
             background-color: #33c7ee30;
         }
+
+        .btn:hover{
+            background-color:#33c5eeab;
+        }
     </style>
 
 </head>
@@ -46,8 +50,8 @@
                         <div v-show="game.rating>=10">Wow! This game must be good.</div>
                         <span v-for="heart in game.rating">❤️</span>
                         <div>
-                            <button @click="increaseRating">+</button>
-                            <button @click="decreaseRating">-</button>
+                            <button class="btn" @click="increaseRating">+</button>
+                            <button class="btn" @click="decreaseRating">-</button>
                         </div>
                     </div>
                 </div>`,
