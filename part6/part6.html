@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vue 101 - Part 6</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        .person {
+            border-radius: .25rem;
+            border: 1px solid #ECECEC;
+            padding: 1rem;
+            margin: 10px;
+            background-color: #33c7ee30;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="app" class="container">
+        <h1>Computed props</h1>
+        <div class="row">
+            <age-calculator 
+                class="col-6" 
+                v-for="person in people" 
+                :person="person" 
+                :key="person.name">
+            </age-calculator>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        Vue.component('age-calculator', {
+            props: {
+                person: {
+                    type: Object,
+                    required: true
+                }
+            },
+            template: `
+            <div>
+                <p class="person">{{ person.name }} has been kicking butt for {{ daysAlive }} days!</p>
+            </div>`,
+            computed: {
+                daysAlive() {
+                    return this.person.age * 365
+                }
+            }
+        });
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                people: [
+                    { name: 'Mario', age: 38 },
+                    { name: 'Luigi', age: 38 },
+                    { name: 'Samus', age: 31 },
+                    { name: 'Link', age: 20 }
+                ]
+            }
+        });
+    </script>
+</body>
+
+</html>
