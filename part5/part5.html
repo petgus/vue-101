@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vue 101 - Part 5</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+    <style>
+        .game-card--item {
+            border-radius: .25rem;
+            border: 1px solid #ECECEC;
+            padding: 1rem;
+            margin:10px;
+            background-color: #33c7ee30;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="app" class="container">
+        <h1>Games</h1>
+        <div class="row">
+            <game-card class="col-4" v-for="game in games" :game-data="game" :key="game.name"></game-card>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        /* Component ---------- */
+        Vue.component('game-card', {
+            props: ['gameData'],
+            data() {
+                return {
+                    game: { ...this.gameData }
+                }
+            },
+            template:
+                `<div>
+                    <div class="game-card--item">
+                        <h4>{{ game.name }}</h4>
+                        {{ game.console }}<br />
+                        <span v-for="heart in game.rating">❤️</span>
+                        <br />
+                        <button @click="increaseRating">+</button>
+                        <button @click="decreaseRating">-</button>
+                    </div>
+                </div>`,
+            methods: {
+                increaseRating() {
+                    this.game.rating++
+                },
+                decreaseRating() {
+                    this.game.rating--
+                }
+            }
+        });
+
+        /* Vue Application ---------- */
+        const app = new Vue({
+            el: '#app',
+            data: {
+                games: [
+                    { name: 'Super Mario 64', console: 'Nintendo 64', rating: 4 },
+                    { name: 'The Legend of Zelda Ocarina of Time', console: 'Nintendo 64', rating: 5 },
+                    { name: 'Secret of Mana', console: 'Super Nintendo', rating: 4 },
+                    { name: 'Fallout 76', console: 'Multiple', rating: 1 },
+                    { name: 'Super Metroid', console: 'Super Nintendo', rating: 6 }
+                ]
+            }            
+        });
+    </script>
+</body>
+
+</html>

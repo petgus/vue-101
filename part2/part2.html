@@ -3,8 +3,8 @@
 
 <head>
     <title>Vue 101 - Part 2</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
@@ -22,7 +22,7 @@
             data: {
                 myLocalProperty: 'Im a local property value'
             },
-            methods: { 
+            methods: {
                 buttonClicked() {
                     const newText = 'The new value is: ' + Math.floor(Math.random() * 100); // 3
                     this.myLocalProperty = newText;
