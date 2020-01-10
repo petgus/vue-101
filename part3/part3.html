@@ -8,8 +8,9 @@
 </head>
 
 <body>
-    <h1>Hello!</h1>
-    <div id="app">
+    
+    <div id="app" class="container">
+        <h1>Part 3</h1>
         <p>My local property: {{ myLocalProperty }}</p>
         <button v-on:click="buttonWasClicked">Click me!</button>
         <hr>
@@ -24,7 +25,7 @@
             el: '#app',
             data: {
                 myLocalProperty: 'Im a local property value',
-                randomNumber: 0
+                randomNumber: 0,
             },
             methods: {
                 buttonWasClicked() {

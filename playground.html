@@ -9,15 +9,15 @@
 
 <body>
     <h1>List of games</h1>
-    <div id="app">        
-        <!-- <ul>
+    <div id="app">
+        <ul>
             <li v-for="game in games">{{ game }}</li>
         </ul>
         <ul>
             <li v-for="(game, index) in games"><b>index: {{ index }}</b> {{ game }}</li>
-        </ul> -->
+        </ul>
 
-        <table class="table">
+        <!-- <table class="table">
             <thead>
                 <th>Name</th>
                 <th>Console</th>
@@ -33,7 +33,7 @@
                     </td>
                 </tr>
             </tbody>
-        </table>
+        </table> -->
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -42,19 +42,19 @@
         const app = new Vue({
             el: '#app',
             data: {
-                // games: [
-                //     'Super Mario 64',
-                //     'The Legend of Zelda Ocarina of Time',
-                //     'Secret of Mana',
-                //     'Super Metroid'
-                // ]
                 games: [
-                    { name: 'Super Mario 64', console: 'Nintendo 64', rating: 4 },
-                    { name: 'The Legend of Zelda Ocarina of Time', console: 'Nintendo 64', rating: 5 },
-                    { name: 'Secret of Mana', console: 'Super Nintendo', rating: 4 },
-                    { name: 'Fallout 76', console: 'Multiple', rating: 1 },
-                    { name: 'Super Metroid', console: 'Super Nintendo', rating: 6 }
+                    'Super Mario 64',
+                    'The Legend of Zelda Ocarina of Time',
+                    'Secret of Mana',
+                    'Super Metroid'
                 ]
+                // games: [
+                //     { name: 'Super Mario 64', console: 'Nintendo 64', rating: 4 },
+                //     { name: 'The Legend of Zelda Ocarina of Time', console: 'Nintendo 64', rating: 5 },
+                //     { name: 'Secret of Mana', console: 'Super Nintendo', rating: 4 },
+                //     { name: 'Fallout 76', console: 'Multiple', rating: 1 },
+                //     { name: 'Super Metroid', console: 'Super Nintendo', rating: 6 }
+                // ]
             },
             methods: {
 
